@@ -32,20 +32,6 @@ while True:
     frame = cv2.resize(frame, (640, 640))
 
     results = model.predict(source=frame, save=False, save_txt=False, conf=0.6)
-
-    '''for result in results:
-        # Detection
-        boxes = result.boxes.xyxy
-        for box in boxes:
-            x, y, x2, y2 = map(int, box)
-            cv2.rectangle(frame, (x, y), (x2, y2), (0, 255, 0), 2)
-
-            #log
-            df = df.append({'frame': frame_counter, 'time': 0,
-                            'class': 'car', 'confidence': 0,
-                            'bounding_box_x': x, 'bounding_box_y': y,
-                            'bounding_box_x2': x2, 'bounding_box_y2': y2},
-                            ignore_index=True)'''
     
     for r in results:
         
